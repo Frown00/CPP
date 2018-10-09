@@ -41,7 +41,6 @@ Menu::Menu()
 	cout << "LISTA 1 - ALOKOWANIE I DEALOKOWANIE PAMIECI" << endl;
 	cout << "-------------------------------------------" << endl;
 	cout << "Wpisz 'help' aby wyswietlic wszystkie dostepne komendy" << endl << endl;
-	start();
 }
 
 
@@ -49,9 +48,12 @@ Menu::~Menu()
 {
 }
 
-void Menu::start()
+void Menu::start(Tables*& tabs)
 {
 	bool running = true;
+	
+	Tables *tables = tabs;
+	
 	vector<string> splittedCommand;
 	string command = "";
 

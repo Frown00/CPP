@@ -8,7 +8,6 @@ using namespace std;
 
 class Menu
 {
-	Tables *tables = new Tables();
 	vector<string> splitString(string cmd, char delimiter);
 
 	enum commandName {
@@ -47,6 +46,6 @@ public:
 	Menu();
 	~Menu();
 
-	void start();
+	void start(Tables*& tabs);
 };
 
