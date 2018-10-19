@@ -14,7 +14,7 @@ class Table
 public:
 	Table();
 	Table(string name, int arrLen);
-	Table(Table &otherTable);
+	Table(Table*& otherTable);
 	~Table();
 
 	void setName(string name);

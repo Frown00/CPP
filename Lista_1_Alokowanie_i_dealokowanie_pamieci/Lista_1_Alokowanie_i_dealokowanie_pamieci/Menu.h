@@ -19,6 +19,7 @@ class Menu
 		PRINT_ALL,
 		SET_NAME,
 		SET_VALUE,
+		SET_LENGTH,
 		HELP,
 		CLEAR,
 		EXIT,
@@ -29,6 +30,7 @@ class Menu
 		if (inString == "create table") return CREATE;
 		else if (inString == "set name") return SET_NAME;
 		else if (inString == "set value") return SET_VALUE;
+		else if (inString == "set length") return SET_LENGTH;
 		else if (inString == "copy table") return COPY;
 		else if (inString == "print table") return PRINT;
 		else if (inString == "print all") return PRINT_ALL;

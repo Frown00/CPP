@@ -69,7 +69,7 @@ bool Tables::copyTable(int tableIndex)
 {
 	int isExists = true;
 	if (tables.size() > tableIndex) {
-		Table* tableCopy = tables[tableIndex];
+		Table* tableCopy = new Table(tables[tableIndex]);
 		tables.push_back(tableCopy);
 	}
 	else {
@@ -84,6 +84,8 @@ bool Tables::deleteTable(int tableIndex)
 	int isExists = true;
 	if (tables.size() > tableIndex) {
 		delete tables[tableIndex];
+		tables.erase(tables.begin() + tableIndex);
+		//tables[tableIndex]->setLength(0);
 	}
 	else {
 		isExists = false;
@@ -94,8 +96,8 @@ bool Tables::deleteTable(int tableIndex)
 
 void Tables::deleteAllTables()
 {
-	for (int i = 0; i < tables.size(); i++) {
-		delete tables[i];
+	for (int i = tables.size()-1; i >= 0; i--) {
+		deleteTable(i);
 	}
 }
 
@@ -114,8 +116,10 @@ bool Tables::printTable(int tableIndex)
 
 void Tables::printAll()
 {
-	for (int i = 0; i < tables.size(); i++) {
-		tables[i]->toString();
+	if (tables.size() > 0) {
+		for (int i = 0; i < tables.size(); i++) {
+			tables[i]->toString();
+		}
 	}
 }
 

@@ -2,7 +2,7 @@
 #define DEF_NAME "Tablica"
 #define DEF_SIZE 10
 
-int* Table::arrayCopy(int* &array, int len)
+int* Table::arrayCopy(int*& array, int len)
 {
 	int* temp = new int[len];
 
@@ -34,13 +34,13 @@ Table::Table(string name, int arrLen)
 	cout << "param: " << this->name << endl;
 }
 
-Table::Table(Table &otherTable)
+Table::Table(Table* &otherTable)
 {
-	cout << "kopiuj: " << otherTable.name;
-	this->name = otherTable.name + "_copy";
-	this->length = otherTable.length;
+	cout << "kopiuj: " << otherTable->name;
+	this->name = otherTable->name + "_copy";
+	this->length = otherTable->length;
 	this->dynamicArray = new int[this->length];
-	this->dynamicArray = arrayCopy(otherTable.dynamicArray, otherTable.length);
+	this->dynamicArray = arrayCopy(otherTable->dynamicArray, otherTable->length);
 }
 
 
@@ -79,7 +79,7 @@ int Table::setValue(int cell, int value)
 		this->dynamicArray[cell] = value;
 		result = 1;
 	}
-	else if (cell >= 0){
+	else if (cell >= 0 && this->length < cell){
 		result = -1;
 	}
 	else {

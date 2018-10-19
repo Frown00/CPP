@@ -48,11 +48,9 @@ Menu::~Menu()
 {
 }
 
-void Menu::start(Tables*& tabs)
+void Menu::start(Tables*& tables)
 {
 	bool running = true;
-	
-	Tables *tables = tabs;
 	
 	vector<string> splittedCommand;
 	string command = "";
@@ -91,7 +89,7 @@ void Menu::start(Tables*& tabs)
 						tables->createTable(name, len);
 					}
 					else {
-						cout << "\n--Dlugosc tablicy musi byc liczba--\n";
+						cout << "\n--Dlugosc tablicy musi byc liczba calkowita--\n";
 					}
 				}
 				else if(params.size() == 1) {
@@ -114,7 +112,7 @@ void Menu::start(Tables*& tabs)
 					}
 				}
 				else {
-					cout << "--Indeks musi byc liczba--\n";
+					cout << "--Indeks musi byc liczba calkowita--\n";
 				}
 			}
 			else if (params.size() == 1) {
@@ -152,6 +150,26 @@ void Menu::start(Tables*& tabs)
 				}
 			}
 			break;
+		case SET_LENGTH:
+			if (params.size() == 2) {
+				if (isNumber(params[0]) && isNumber(params[1])) {
+					bool result = tables->setLength(stoi(params[0]), stoi(params[1]));
+					if (result) {
+						cout << "! Zmieniono dlugosc tablicy na " << params[1] << endl;
+					}
+					else {
+						cout << "--Brak podanej tablicy--" << params[1] << endl;
+					}
+
+				}
+				else {
+					cout << "--Wszystkie parametry musza byc liczbami--\n";
+				}
+			}
+			else {
+				cout << "--Za malo badz za duzo parametrow--\n";
+			}
+			break;
 		case COPY:
 			if (params.size() == 1) {
 				if (isNumber(params[0])) {
@@ -174,7 +192,7 @@ void Menu::start(Tables*& tabs)
 					}
 				}
 				else {
-					cout << "--Indeks musi byc liczba--\n";
+					cout << "--Indeks musi byc liczba calkowita--\n";
 				}
 			}
 			else {
@@ -207,7 +225,7 @@ void Menu::start(Tables*& tabs)
 			break;
 		case DELETE_ALL:
 			if (params.size() == 0) {
-				delete tables;
+				tables->deleteAllTables();
 				cout << "! Usunieto wszystkie tablice\n";
 			}
 			else {
@@ -220,10 +238,11 @@ void Menu::start(Tables*& tabs)
 			cout << "* create table <nazwa> <dlugosc> - tworzy tablice o podanej nazwie i dlugosci\n";
 			cout << "* set name <indeks_tablicy> <name> - zmienia nazwe danej tablicy\n";
 			cout << "* set value <indeks_tablicy> <indeks_komorki> <wartosc> - wpisuje w danej tablicy wartosc do podanej komorki\n";
+			cout << "* set length <indeks_tablicy> <dlugosc> - zmienia dlugosc podanej tablicy\n";
 			cout << "* copy table <indeks_tablicy> - tworzy kopie danej tablicy i dodaje ja do listy\n";
 			cout << "* print table <indeks_tablicy> - wyswietla informacje o danej tablicy\n";
 			cout << "* print all - wyswietla informacje o wszystkich tablicach\n";
-			cout << "* delete table <indeks_tablic> - usuwa dana tablice\n";
+			cout << "* delete table <indeks_tablicy> - usuwa dana tablice\n";
 			cout << "* delete all - usuwa wszystkie tablice\n";
 			cout << "* clear - czysci konsole\n";
 			cout << "* exit - opuszcza program\n\n";
