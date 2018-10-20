@@ -1,17 +1,21 @@
 #include "Menu.h"
 #define BACK "back"
-
+#define CLEAR "clear"
+#define MENU "menu"
+#define TYPE "Menu"
 
 Menu::Menu()
 {
 	s_name = "Menu Glowne";
-	s_command = "main_menu";
+	s_command = "";
+	type = TYPE;
 }
 
 Menu::Menu(string name, string cmd)
 {
 	s_name = name;
 	s_command = cmd;
+	type = TYPE;
 }
 
 
@@ -25,17 +29,16 @@ void Menu::run()
 	//menuItems[0]->run();
 	// Displaying possible options
 	map<string, MenuItem*> actions;
-	vector<string> commands;
 	
-	cout << s_name << endl << endl;
+	cout << endl << s_name << endl << endl;
 	
 	for (int i = 0; i < menuItems.size(); i++) {
 		cout << i + 1;
 		cout << ". " + menuItems[i]->getName();
 		cout << " (" + menuItems[i]->getCommand() + ")" << endl;
-		commands.push_back(menuItems[i]->getCommand());
 		actions.insert(pair<string, MenuItem*>(menuItems[i]->getCommand(), menuItems[i]));
 	}
+	cout << ".. Cofnij" << " (back)" << endl;
 
 	// Writing command
 	bool running = true;
@@ -45,30 +48,52 @@ void Menu::run()
 	static bool isBack = false;
 	while (running) {
 		if (isBack) {
-			cout << s_name << endl << endl;
-			for (int i = 0; i < menuItems.size(); i++) {
-				cout << i + 1;
-				cout << ". " + menuItems[i]->getName();
-				cout << " (" + menuItems[i]->getCommand() + ")" << endl;
-			}
+			displayMenu();
+			isBack = false;
 		}
-
+		
 		cout << endl << "> ";
 		getline(cin, command);
 		splittedCommand = splitString(command, ' ');
 
-		string cmd = splittedCommand[0];
-		vector<string> params;
+		string cmd;
+		vector<string> args;
+		int cmdSize = splittedCommand.size();	// Number of words in command
+		if (cmdSize == 1) {
+			cmd = splittedCommand[0];
+		}
+		else if(cmdSize >= 2) {
+			cmd = splittedCommand[0] + " " + splittedCommand[1];
 
+			for (int i = 2; i < splittedCommand.size(); i++) {
+				args.push_back(splittedCommand[i]);
+			}
+		}
+		
 		//std::map<string, MenuItem>::iterator it;
 		if (cmd == BACK) {
 			running = false;
 			isBack = true;
+		}
+		else if (cmd == CLEAR) {
 			system("cls");
 		}
+		else if (cmd == MENU) {
+			displayMenu();
+		}
 		else if (actions.find(cmd) != actions.end()) {
-			system("cls");
-			actions.find(cmd)->second->run();
+			MenuItem* item = actions.find(cmd)->second;
+			if (item->getType() == TYPE) {
+				item->run();
+			}
+			else {
+				if (args.size() > 0) {
+					item->run(args);
+				}
+				else {
+					item->run();
+				}
+			}
 		}
 		else {
 			cout << endl << "! Komenda nie istnieje" << endl;
@@ -78,7 +103,13 @@ void Menu::run()
 
 void Menu::addItem(MenuItem* item)
 {
-	menuItems.push_back(item);
+	if(isCommandExist(item->getCommand())) {
+		cout << "Nie dodano komendy" << endl;
+		cout << "Komenda '" << item->getCommand() << "'" << " istnieje" << endl;;
+	}
+	else {
+		menuItems.push_back(item);
+	}
 }
 
 
@@ -103,3 +134,28 @@ vector<string> Menu::splitString(string cmd, char delimiter)
 		splittedString.push_back(singlePart);
 	return splittedString;
 }
+
+bool Menu::isCommandExist(string cmd)
+{
+	bool isExist = false;
+
+	for (int i = 0; i < menuItems.size(); i++) {
+		if (cmd == menuItems[i]->getCommand()) {
+			isExist = true;
+			break;
+		} 
+	}
+	return isExist;
+}
+
+void Menu::displayMenu()
+{
+	cout << endl << s_name << endl << endl;
+	for (int i = 0; i < menuItems.size(); i++) {
+		cout << i + 1;
+		cout << ". " + menuItems[i]->getName();
+		cout << " (" + menuItems[i]->getCommand() + ")" << endl;
+	}
+	cout << ".. Cofnij" << " (back)" << endl;
+}
+

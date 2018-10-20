@@ -13,36 +13,126 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{4db20a30-88c8-4619-80d9-bb1ef86754a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{53c87606-b6f6-47b4-8ae4-83376607b5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{3778dcc3-0d42-4f60-8865-012229532656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{e70fefc1-d4a7-4bef-9a57-3fa4e323e907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu\Commands">
+      <UniqueIdentifier>{54e3a5bf-e774-4800-8e08-98da4e8625bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu\Commands">
+      <UniqueIdentifier>{4248253b-d110-4270-8dc0-c2805f173ddb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
+    <ClCompile Include="Table.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuItem.cpp">
+    <ClCompile Include="Tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuCommand.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="PrintTable.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintAll.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateTable.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommand.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuItem.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyTable.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SetValue.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SetName.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SetLength.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteTable.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteAll.cpp">
+      <Filter>Source Files\Menu\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menu.h">
+    <ClInclude Include="Table.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuItem.h">
+    <ClInclude Include="Tables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCommand.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="PrintTable.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintAll.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateTable.h">
+      <Filter>Header Files\Menu\Commands</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommand.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyTable.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SetValue.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SetName.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SetLength.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteTable.h">
+      <Filter>Header Files\Menu\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteAll.h">
+      <Filter>Header Files\Menu\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

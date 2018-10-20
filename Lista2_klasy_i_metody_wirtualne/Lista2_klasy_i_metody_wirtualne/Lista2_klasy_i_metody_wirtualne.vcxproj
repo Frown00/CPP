@@ -116,16 +116,40 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CopyTable.cpp" />
+    <ClCompile Include="CreateTable.cpp" />
+    <ClCompile Include="DeleteAll.cpp" />
+    <ClCompile Include="DeleteTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCommand.cpp" />
     <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="PrintAll.cpp" />
+    <ClCompile Include="PrintTable.cpp" />
+    <ClCompile Include="SetLength.cpp" />
+    <ClCompile Include="SetName.cpp" />
+    <ClCompile Include="SetValue.cpp" />
+    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="Tables.cpp" />
+    <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command.h" />
+    <ClInclude Include="CopyTable.h" />
+    <ClInclude Include="CreateTable.h" />
+    <ClInclude Include="DeleteAll.h" />
+    <ClInclude Include="DeleteTable.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCommand.h" />
     <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="PrintAll.h" />
+    <ClInclude Include="PrintTable.h" />
+    <ClInclude Include="SetLength.h" />
+    <ClInclude Include="SetName.h" />
+    <ClInclude Include="SetValue.h" />
+    <ClInclude Include="Table.h" />
+    <ClInclude Include="Tables.h" />
+    <ClInclude Include="tools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

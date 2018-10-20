@@ -2,7 +2,12 @@
 
 void MenuItem::run()
 {
-	cout << "Menu item" << endl;
+	cout << endl << "Menu item" << endl;
+}
+
+void MenuItem::run(vector<string> arguments)
+{
+	cout << endl << "Menu item" << endl;
 }
 
 //MenuItem::~MenuItem()
@@ -18,5 +23,10 @@ string MenuItem::getName()
 string MenuItem::getCommand()
 {
 	return s_command;
+}
+
+string MenuItem::getType()
+{
+	return type;
 }
 
