@@ -1,0 +1,11 @@
+﻿pillow 3.0 10
+fork 1 2
+knife 1 5
+spoon 1 10
+bottle of water 2 6
+jacket 6 20
+socks 1 3
+sleeping bag 7 23
+flint 1 8
+tent 15 35
+flashlight 2 12
